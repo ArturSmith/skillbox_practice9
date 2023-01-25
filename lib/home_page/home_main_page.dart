@@ -1,6 +1,9 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
-import 'package:flutter_practice9/home_page/cards.dart';
 import 'package:flutter_practice9/home_page/home_page_body.dart';
 import 'package:flutter_practice9/home_page/top_row_children.dart';
 
@@ -12,7 +15,10 @@ class HomeMainPage extends StatefulWidget {
 }
 
 class _HomeMainPageState extends State<HomeMainPage> {
+  final List<Widget> children = [];
+
   bool listOrGrid = true;
+
   final List<Widget> topRow = const [
     TopRowChildren(childText: 'hotels'),
     TopRowChildren(childText: 'rooms'),
@@ -21,61 +27,50 @@ class _HomeMainPageState extends State<HomeMainPage> {
     TopRowChildren(childText: 'houses'),
   ];
 
+  bool isLoading = false;
+  bool errorResponce = false;
+
+  void getData() async {
+    setState(() {
+      isLoading = false;
+    });
+
+    try {
+      final request = await Dio()
+          .get('https://run.mocky.io/v3/ac888dc5-d193-4700-b12c-abb43e289301');
+
+      // final json = jsonDecode(request);
+    } catch (e) {
+      setState(() {
+        errorResponce = true;
+      });
+    }
+
+    setState(() {
+      isLoading = true;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            pinned: true,
-            floating: true,
-            backgroundColor: AppColors().mainAppColor,
-            flexibleSpace: const FlexibleSpaceBar(
-              title: Text('Welcome'),
-            ),
-            expandedHeight: 150,
-            actions: [
-              IconButton(
-                  onPressed: (() {
-                    setState(() {
-                      listOrGrid = false;
-                    });
-                  }),
-                  icon: const Icon(Icons.grid_view)),
-              IconButton(
-                  onPressed: (() {
-                    setState(() {
-                      listOrGrid = true;
-                    });
-                  }),
-                  icon: const Icon(Icons.list)),
-            ],
-          ),
-          SliverToBoxAdapter(
-              child: SizedBox(
-                  height: 50,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: topRow,
-                  ))),
-          HomePageBody(
-            listOrGrid: listOrGrid,
-            children: [
-              Cards(listOrGrid: listOrGrid, name: 'Continental', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Grozny', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Oslo', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Moscow', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Continental', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Grozny', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Oslo', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Moscow', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Continental', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Grozny', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Oslo', image: ''),
-              Cards(listOrGrid: listOrGrid, name: 'Moscow', image: ''),
-            ],
-          )
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: isLoading
+            ? errorResponce
+                ? HomePageBody(
+                    listOrGrid: listOrGrid, topRow: topRow, children: children)
+                : const Center(child: Text('Error 404'))
+            : Center(
+                child: CircularProgressIndicator(
+                  color: AppColors().mainAppColor,
+                ),
+              ),
       ),
     );
   }
