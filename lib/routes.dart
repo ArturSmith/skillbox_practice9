@@ -4,6 +4,6 @@ import 'package:flutter_practice9/login_page/login_page.dart';
 class Routes {
   final routes = {
     "/LoginPage": (context) => const LoginPage(),
-    "/HomeMainPage": (context) => HomeMainPage()
+    "/HomeMainPage": (context) => const HomeMainPage()
   };
 }

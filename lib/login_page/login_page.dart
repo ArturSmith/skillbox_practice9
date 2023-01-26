@@ -15,20 +15,32 @@ class LoginPage extends StatelessWidget {
                 // ButtonFunctions(context).login('');
               }),
               style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(AppColors().mainAppColor),
-                  minimumSize: MaterialStateProperty.all(const Size(250, 50))),
-              child: const Text('Log in')),
+                elevation: MaterialStateProperty.all(10),
+                backgroundColor:
+                    MaterialStateProperty.all(AppColors().mainAppColor),
+                minimumSize: MaterialStateProperty.all(const Size(250, 50)),
+                maximumSize: MaterialStateProperty.all(const Size(400, 50)),
+              ),
+              child: const Text(
+                'Log in',
+                style: TextStyle(color: Colors.white),
+              )),
           const Spacer(flex: 3),
           ElevatedButton(
             onPressed: (() {
               // ButtonFunctions(context).signup('');
             }),
             style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateProperty.all(AppColors().mainAppColor),
-                minimumSize: MaterialStateProperty.all(const Size(250, 50))),
-            child: const Text('Sign up'),
+              elevation: MaterialStateProperty.all(10),
+              backgroundColor:
+                  MaterialStateProperty.all(AppColors().mainAppColor),
+              minimumSize: MaterialStateProperty.all(const Size(250, 50)),
+              maximumSize: MaterialStateProperty.all(const Size(400, 50)),
+            ),
+            child: const Text(
+              'Sign up',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           const Spacer(flex: 3),
           OutlinedButton(

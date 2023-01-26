@@ -24,7 +24,9 @@ class Cards extends StatelessWidget {
               ? Column(
                   children: [
                     // ignore: unnecessary_null_comparison
-                    image != '' ? Image.asset(image) : Container(),
+                    image != ''
+                        ? Image(image: AssetImage(image))
+                        : const SizedBox(),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 10),
@@ -36,6 +38,7 @@ class Cards extends StatelessWidget {
                               child: Text(
                                 name,
                                 style: const TextStyle(color: Colors.black),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ),
@@ -45,7 +48,8 @@ class Cards extends StatelessWidget {
                                   backgroundColor: MaterialStateProperty.all(
                                       AppColors().mainAppColor),
                                   minimumSize: MaterialStateProperty.all(
-                                      const Size(double.maxFinite, 40)),
+                                      const Size(
+                                          double.maxFinite, double.maxFinite)),
                                 ),
                                 onPressed: (() {}),
                                 child: const Text('Information')),
@@ -59,15 +63,18 @@ class Cards extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
-                        flex: 3,
-                        child: image != '' ? Image.asset(image) : Container()),
+                      flex: 3,
+                      child: image != ''
+                          ? Image(image: AssetImage(image))
+                          : const SizedBox(),
+                    ),
                     Expanded(
                       flex: 2,
                       child: Center(
                         child: Text(
                           name,
                           style: const TextStyle(color: Colors.black),
-                          softWrap: true,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
