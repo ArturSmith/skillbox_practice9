@@ -14,7 +14,6 @@ class _TopRowChildrenState extends State<TopRowChildren> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-
       child: OutlinedButton(
         onPressed: () {
           setState(() {
@@ -35,18 +34,6 @@ class _TopRowChildrenState extends State<TopRowChildren> {
           style: TextStyle(color: isSelected ? Colors.white : Colors.black),
         ),
       ),
-
-      // child: InkWell(
-      //   onTap: (() {}),
-      //   child: Container(
-      //     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
-      //     decoration: BoxDecoration(
-      //         border: Border.all(color: Colors.black),
-      //         color: Colors.white,
-      //         borderRadius: const BorderRadius.all(Radius.circular(20))),
-      //     child: Text(widget.childText),
-      //   ),
-      // )
     );
   }
 }
