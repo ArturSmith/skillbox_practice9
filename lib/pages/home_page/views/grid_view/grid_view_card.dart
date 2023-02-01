@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
+import 'package:flutter_practice9/pages/home_page/views/carousel_view/carousel_slider_view.dart';
 
 class GridCard extends StatefulWidget {
   const GridCard(
@@ -16,6 +17,13 @@ class GridCard extends StatefulWidget {
 }
 
 class _GridCardState extends State<GridCard> {
+  void showInfo() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+          builder: (context) => CarouselSliderView(uuid: widget.uuid)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -61,7 +69,9 @@ class _GridCardState extends State<GridCard> {
                             MaterialStateProperty.all(AppColors().mainAppColor),
                         minimumSize: MaterialStateProperty.all(
                             const Size(double.maxFinite, double.maxFinite))),
-                    onPressed: (() {}),
+                    onPressed: (() {
+                      showInfo();
+                    }),
                     child: const Text(
                       'Info',
                       style: TextStyle(color: Colors.white),

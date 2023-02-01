@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/api/api_hotel.dart';
+import 'package:flutter_practice9/helpers/app_colors.dart';
 import 'package:flutter_practice9/json_files/hotel_preview.dart';
 import 'package:flutter_practice9/pages/home_page/views/list_view/list_view_card.dart';
 
@@ -24,8 +25,10 @@ class ListViewHotels extends StatelessWidget {
         builder: ((context, snapshot) {
           return snapshot.data != null
               ? ListView(children: createListCards(snapshot.data))
-              : const Center(
-                  child: Text("No data"),
+              : Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors().mainAppColor,
+                  ),
                 );
         }));
   }

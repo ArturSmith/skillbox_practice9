@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/api/api_hotel.dart';
+import 'package:flutter_practice9/helpers/app_colors.dart';
 import 'package:flutter_practice9/json_files/hotel_preview.dart';
 import 'package:flutter_practice9/pages/home_page/views/grid_view/grid_view_card.dart';
 
@@ -25,8 +26,10 @@ class GridViewHotels extends StatelessWidget {
           return snapshot.data != null
               ? GridView.count(
                   crossAxisCount: 2, children: createGridCards(snapshot.data))
-              : const Center(
-                  child: Text("No data"),
+              : Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors().mainAppColor,
+                  ),
                 );
         }));
   }
