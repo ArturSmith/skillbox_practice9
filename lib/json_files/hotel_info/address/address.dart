@@ -1,4 +1,4 @@
-import 'package:flutter_practice9/json_files/hotel_nfo/address/coords.dart';
+import 'package:flutter_practice9/json_files/hotel_info/address/coords.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'address.g.dart';
@@ -7,11 +7,11 @@ part 'address.g.dart';
 class Address {
   final String country;
   final String street;
-  final String sity;
-  final int zipCode;
+  final String city;
+  final int zip_code;
   final Coords coords;
 
-  Address(this.country, this.street, this.sity, this.zipCode, this.coords);
+  Address(this.country, this.street, this.city, this.zip_code, this.coords);
 
   factory Address.fromJson(Map<String, dynamic> json) =>
       _$AddressFromJson(json);

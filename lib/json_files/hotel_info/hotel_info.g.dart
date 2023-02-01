@@ -11,8 +11,8 @@ HotelInfo _$HotelInfoFromJson(Map<String, dynamic> json) => HotelInfo(
       json['name'] as String,
       json['poster'] as String,
       Address.fromJson(json['address'] as Map<String, dynamic>),
-      json['price'] as int,
-      json['rating'] as int,
+      (json['price'] as num).toDouble(),
+      (json['rating'] as num).toDouble(),
       Services.fromJson(json['services'] as Map<String, dynamic>),
       (json['photos'] as List<dynamic>).map((e) => e as String).toList(),
     );

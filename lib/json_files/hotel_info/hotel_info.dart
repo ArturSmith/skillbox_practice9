@@ -1,5 +1,5 @@
-import 'package:flutter_practice9/json_files/hotel_nfo/address/address.dart';
-import 'package:flutter_practice9/json_files/hotel_nfo/services.dart';
+import 'package:flutter_practice9/json_files/hotel_info/address/address.dart';
+import 'package:flutter_practice9/json_files/hotel_info/services.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'hotel_info.g.dart';
@@ -10,8 +10,8 @@ class HotelInfo {
   final String name;
   final String poster;
   final Address address;
-  final int price;
-  final int rating;
+  final double price;
+  final double rating;
   final Services services;
   final List<String> photos;
 

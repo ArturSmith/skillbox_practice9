@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
 
-class ListCard extends StatelessWidget {
-  const ListCard({super.key, required this.name, required this.image});
+class ListCard extends StatefulWidget {
+  const ListCard(
+      {super.key,
+      required this.name,
+      required this.poster,
+      required this.uuid});
   final String name;
-  final String image;
+  final String poster;
+  final String uuid;
 
+  @override
+  State<ListCard> createState() => _ListCardState();
+}
+
+class _ListCardState extends State<ListCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -23,7 +33,7 @@ class ListCard extends StatelessWidget {
             border: Border.all(color: Colors.black, width: 2)),
         child: Column(
           children: [
-            Image(image: AssetImage('assets/images/$image')),
+            Image(image: AssetImage('assets/images/${widget.poster}')),
             Container(
               height: 2,
               color: Colors.black,
@@ -36,7 +46,7 @@ class ListCard extends StatelessWidget {
                   Expanded(
                       child: Center(
                           child: Text(
-                    name,
+                    widget.name,
                     style: const TextStyle(fontWeight: FontWeight.w600),
                   ))),
                   Flexible(

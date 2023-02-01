@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
 
-class GridCard extends StatelessWidget {
-  const GridCard({super.key, required this.name, required this.image});
+class GridCard extends StatefulWidget {
+  const GridCard(
+      {super.key,
+      required this.name,
+      required this.poster,
+      required this.uuid});
   final String name;
-  final String image;
+  final String poster;
+  final String uuid;
 
+  @override
+  State<GridCard> createState() => _GridCardState();
+}
+
+class _GridCardState extends State<GridCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -24,13 +34,14 @@ class GridCard extends StatelessWidget {
             children: [
               Expanded(
                 flex: 10,
-                child: Image(image: AssetImage('assets/images/$image')),
+                child:
+                    Image(image: AssetImage('assets/images/${widget.poster}')),
               ),
               Expanded(
                   flex: 4,
                   child: Center(
                     child: Text(
-                      name,
+                      widget.name,
                       textAlign: TextAlign.center,
                     ),
                   )),

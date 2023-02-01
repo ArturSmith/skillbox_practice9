@@ -4,8 +4,8 @@ part 'coords.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class Coords {
-  final int lat;
-  final int lan;
+  final double lat;
+  final double lan;
 
   Coords(this.lat, this.lan);
 

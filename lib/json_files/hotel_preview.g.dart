@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'hotel.dart';
+part of 'hotel_preview.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
