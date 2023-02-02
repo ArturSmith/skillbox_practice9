@@ -18,7 +18,7 @@ class _HomePageBodyState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          elevation: 10,
+          elevation: 20,
           backgroundColor: AppColors().mainAppColor,
           title: bedOrBar ? const Text('Отели') : const Text('Бары'),
           centerTitle: true,
