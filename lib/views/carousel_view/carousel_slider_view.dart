@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/api/api_hotel.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
-import 'package:flutter_practice9/json_files/hotel_info/hotel_info.dart';
-import 'package:flutter_practice9/pages/home_page/views/carousel_view/carousel_card.dart';
+import 'package:flutter_practice9/views/carousel_view/carousel_card.dart';
 
 class CarouselSliderView extends StatelessWidget {
   const CarouselSliderView({super.key, required this.uuid});

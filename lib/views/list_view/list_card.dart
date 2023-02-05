@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
-import 'package:flutter_practice9/pages/home_page/views/carousel_view/carousel_slider_view.dart';
+import 'package:flutter_practice9/views/carousel_view/carousel_slider_view.dart';
 
 class ListCard extends StatefulWidget {
   const ListCard(
@@ -41,9 +41,7 @@ class _ListCardState extends State<ListCard> {
             border: Border.all(color: Colors.black, width: 2)),
         child: Column(
           children: [
-            // FadeInImage.assetNetwork(
-            //     placeholder: 'assets/gifs/Spinner-1.3s-197px.gif',
-            //     image: 'assets/images/${widget.poster}'),
+            // LoadImage(image: widget.poster),
             Image(image: AssetImage('assets/images/${widget.poster}')),
             Container(
               height: 2,
@@ -82,5 +80,16 @@ class _ListCardState extends State<ListCard> {
         ),
       ),
     );
+  }
+}
+
+class LoadImage extends StatelessWidget {
+  const LoadImage({super.key, required this.image});
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return FadeInImage.assetNetwork(
+        placeholder: 'assets/gifs/Spinner-1.3s-197px.gif',
+        image: 'assets/images/$image');
   }
 }

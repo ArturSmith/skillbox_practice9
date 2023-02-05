@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
-import 'package:flutter_practice9/pages/home_page/views/carousel_view/carousel_slider_view.dart';
+import 'package:flutter_practice9/views/carousel_view/carousel_slider_view.dart';
 
 class GridCard extends StatefulWidget {
   const GridCard(

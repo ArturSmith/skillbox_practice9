@@ -45,9 +45,21 @@ class _CarouselCardState extends State<CarouselCard> {
         children: [
           CarouselSlider(
               items: widget.photos
-                  .map((e) => GestureDetector(
-                      onTap: () {},
-                      child: Image(image: AssetImage('assets/images/$e'))))
+                  .map((image) => Container(
+                        clipBehavior: Clip.hardEdge,
+                        margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: ClipRRect(
+                          child: Stack(
+                            children: [
+                              Image.asset(
+                                'assets/images/$image',
+                                fit: BoxFit.cover,
+                                width: MediaQuery.of(context).size.width,
+                              )
+                            ],
+                          ),
+                        ),
+                      ))
                   .toList(),
               options: CarouselOptions(
                 clipBehavior: Clip.hardEdge,

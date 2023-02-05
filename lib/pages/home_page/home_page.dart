@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
-import 'package:flutter_practice9/pages/home_page/views/grid_view/grid_view_hotel.dart';
-import 'package:flutter_practice9/pages/home_page/views/list_view/list_view_hotel.dart';
+import 'package:flutter_practice9/views/grid_view/grid_view_hotel.dart';
+import 'package:flutter_practice9/views/list_view/list_view_hotel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
