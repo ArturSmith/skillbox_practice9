@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practice9/api/api_hotel.dart';
 import 'package:flutter_practice9/helpers/app_colors.dart';
 import 'package:flutter_practice9/json_files/hotel_info/hotel_info.dart';
-import 'package:flutter_practice9/pages/home_page/views/carousel_view/carousel_view_card.dart';
+import 'package:flutter_practice9/pages/home_page/views/carousel_view/carousel_card.dart';
 
 class CarouselSliderView extends StatelessWidget {
   const CarouselSliderView({super.key, required this.uuid});
@@ -12,12 +12,12 @@ class CarouselSliderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: ApiHotel().getInfo(uuid),
-        builder: ((context, AsyncSnapshot<HotelInfo> snapshot) {
+        builder: ((context, AsyncSnapshot snapshot) {
           return Scaffold(
               appBar: AppBar(
                 backgroundColor: AppColors().mainAppColor,
                 title: Text(
-                  snapshot.hasData ? snapshot.data!.name : 'Loading...',
+                  snapshot.data != null ? snapshot.data.name : 'Loading...',
                   style: const TextStyle(fontSize: 20),
                 ),
                 centerTitle: true,

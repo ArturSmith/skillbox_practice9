@@ -41,6 +41,9 @@ class _ListCardState extends State<ListCard> {
             border: Border.all(color: Colors.black, width: 2)),
         child: Column(
           children: [
+            // FadeInImage.assetNetwork(
+            //     placeholder: 'assets/gifs/Spinner-1.3s-197px.gif',
+            //     image: 'assets/images/${widget.poster}'),
             Image(image: AssetImage('assets/images/${widget.poster}')),
             Container(
               height: 2,

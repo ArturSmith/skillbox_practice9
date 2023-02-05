@@ -18,7 +18,7 @@ class CarouselCard extends StatefulWidget {
       required this.lan,
       required this.free,
       required this.paid});
-  final String? uuid;
+  final String uuid;
   final String name;
   final String poster;
   final double price;
